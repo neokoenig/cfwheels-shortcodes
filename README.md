@@ -3,7 +3,7 @@ cfwheels-shortcodes
 
 A Shortcodes plugin for cfwheels
 
-## Shortcodes v0.1
+## Shortcodes v0.2
 This is a port of Barney's [shortcodes](http://www.barneyb.com/barneyblog/projects/shortcodes) implementation for CFML (itself a port of the wordpress shortcodes concept). He wrote all the tricky stuff, I've just refactored into cfscript, stripped out all the CFC aspects and made into a cfWheels plugin. Note, I haven't bothered with the full cfc implementation with execute, as we're doing this within a cfwheels app.
 
 Please note nested shortcodes aren't currently supported.
