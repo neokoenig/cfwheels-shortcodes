@@ -1,18 +1,10 @@
 component hint="cfWheels ShortCodes Plugin" output="false" mixin="global"
 {
-/*
- * cfwheels Shortcodes: port of http://www.barneyb.com/barneyblog/projects/shortcodes/
- *
- *
- * Copyright (c) 2014 Tom King
- * Licensed under the MIT license.
- */
-
 	/**
 	 * @hint Constructor.
 	 */
 	public  function init() {
-		this.version = "1.3";
+		this.version = "1.3,1.3.1,1.3.2,1.3.3";
 		application.shortcodes={};
 		return this;
 	}
@@ -31,6 +23,8 @@ component hint="cfWheels ShortCodes Plugin" output="false" mixin="global"
 	 */
 	public string function processShortcodes(string content){
 		var result="";
+			// Strip potential problematic HTML entities caused by RTEs
+			content=replace(content, "&nbsp;", " ", "all");
 			result=$sc_REReplaceCallback(string=content, pattern=$sc_getRegex(), callback=$sc_processTag, scope="all");
 		return result;
 	}
@@ -91,37 +85,44 @@ component hint="cfWheels ShortCodes Plugin" output="false" mixin="global"
 		var qi = "";
 		var i = "";
 		var t = "";
-
-		if(trim(text) EQ ""){
-			return attrs;
-		}
-		text = trim(REReplace(text, "[#chr(inputBaseN('00a0', 16))#}#chr(inputBaseN('200b', 16))#]+", " ", "all"));
-		while (true) {
-			si = find(" ", text);
-			qi = REFind("['""]", text);
-			if(si EQ 0 AND qi EQ 0){
-				if(trim(text) NEQ ""){
-					arrayAppend(tokens, trim(text));
+		try{
+			if(trim(text) EQ ""){
+				return attrs;
+			}
+			text = trim(REReplace(text, "[#chr(inputBaseN('00a0', 16))#}#chr(inputBaseN('200b', 16))#]+", " ", "all"));
+			while (true) {
+				si = find(" ", text);
+				qi = REFind("['""]", text);
+				if(si EQ 0 AND qi EQ 0){
+					if(trim(text) NEQ ""){
+						arrayAppend(tokens, trim(text));
+					}
+					break;
+				} else if(si GT 0 AND (qi EQ 0 OR si LT qi)){
+					arrayAppend(tokens, trim(mid(text, 1, si)));
+					text = trim(removeChars(text, 1, si));
+				} else {
+					t = trim(mid(text, 1, qi - 1)) & mid(text, qi + 1, find(mid(text, qi, 1), text, qi + 1) - qi - 1);
+					arrayAppend(tokens, t);
+					text = trim(removeChars(text, 1, len(t) + 2));
 				}
-				break;
-			} else if(si GT 0 AND (qi EQ 0 OR si LT qi)){
-				arrayAppend(tokens, trim(mid(text, 1, si)));
-				text = trim(removeChars(text, 1, si));
-			} else {
-				t = trim(mid(text, 1, qi - 1)) & mid(text, qi + 1, find(mid(text, qi, 1), text, qi + 1) - qi - 1);
-				arrayAppend(tokens, t);
-				text = trim(removeChars(text, 1, len(t) + 2));
 			}
-		}
-		i = 0;
-		for(t in tokens){
-			if(REFind('^\w+=', t) EQ 1){
-				attrs[listFirst(t, "=")] = listRest(t, "=");
-			} else {
-				i += 1;
-				attrs[i] = t;
+			i = 0;
+			for(t in tokens){
+				if(REFind('^\w+=', t) EQ 1){
+					attrs[listFirst(t, "=")] = listRest(t, "=");
+				} else {
+					i += 1;
+					attrs[i] = t;
+				}
 			}
+
+		} catch(any e){
+			// Silently fail: if we throw an error here, it can get to the point where the page is uneditable. Better to output nothing.
+			// This assumes all your attr have a default.
+			return {};
 		}
+
 		return attrs;
 	}
 	/**
