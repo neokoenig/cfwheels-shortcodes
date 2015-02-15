@@ -35,7 +35,7 @@ In ```/events/functions.cfm```, add your callback:
        return "foo";
     }
 
-Lastly, wrap any content which you want to parse for shortcodes to with ```sc_process()```
+Lastly, wrap any content which you want to parse for shortcodes to with ```processShortcodes()```
 
     <cfsavecontent variable="mycontent">
       <p>I am [test], fear me.</p>
