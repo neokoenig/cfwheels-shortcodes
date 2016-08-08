@@ -4,7 +4,7 @@ component hint="cfWheels ShortCodes Plugin" output="false" mixin="global"
 	 * @hint Constructor.
 	 */
 	public  function init() {
-		this.version = "1.3,1.3.1,1.3.2,1.3.3";
+		this.version = "1.3,1.3.1,1.3.2,1.3.3,1.4.4,1.4.5";
 		application.shortcodes={};
 		return this;
 	}
