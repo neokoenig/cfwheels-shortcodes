@@ -48,8 +48,11 @@
     "installPaths":{
         
     },
-    "scripts":{
-        
+     "scripts":{
+        "postVersion":"package set location='neokoenig/cfwheels-shortcodes#v`package version`'",
+        "postPublish":"!git push --follow-tags",
+        "patch-release":"bump --patch && publish",
+        "minor-release":"bump --minor && publish",
     },
     "ignore":[
         
