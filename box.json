@@ -1,0 +1,86 @@
+{
+    "name":"Shortcodes",
+    "version":"0.0.2",
+    "author":"Tom King",
+    "location":"https://github.com/neokoenig/cfwheels-shortcodes/archive/0.2.zip",
+    "directory":"/plugins/",
+    "createPackageDirectory":true,
+    "packageDirectory":"",
+    "homepage":"https://github.com/neokoenig/cfwheels-shortcodes",
+    "documentation":"",
+    "repository":{
+        "type":"",
+        "URL":""
+    },
+    "bugs":"",
+    "slug":"shortcodes",
+    "shortDescription":"Shortcodes Plugin for CFWheels",
+    "description":"",
+    "instructions":"",
+    "changelog":"",
+    "type":"cfwheels-plugins",
+    "keywords":"shortcodes",
+    "private":false,
+    "engines":[
+        {
+            "type":"",
+            "version":""
+        }
+    ],
+    "defaultEngine":"",
+    "defaultPort":0,
+    "projectURL":"",
+    "license":[
+        {
+            "type":"",
+            "URL":""
+        }
+    ],
+    "contributors":[
+        
+    ],
+    "dependencies":{
+        
+    },
+    "devDependencies":{
+        
+    },
+    "installPaths":{
+        
+    },
+    "scripts":{
+        
+    },
+    "ignore":[
+        
+    ],
+    "testbox":{
+        "runner":[
+            {
+                "default":""
+            }
+        ],
+        "labels":[
+            
+        ],
+        "reporter":"",
+        "reporterResults":"",
+        "bundles":[
+            ""
+        ],
+        "directory":{
+            "mapping":"",
+            "recurse":true
+        },
+        "watchers":[
+            
+        ],
+        "notify":{
+            "emails":[
+                
+            ],
+            "growl":"",
+            "URL":""
+        }
+    }
+}
