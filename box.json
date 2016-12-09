@@ -2,7 +2,7 @@
     "name":"Shortcodes",
     "version":"0.0.3",
     "author":"Tom King",
-    "location":"https://github.com/neokoenig/cfwheels-shortcodes/archive/0.2.zip",
+    "location":"https://github.com/neokoenig/cfwheels-shortcodes/archive/v0.0.3.zip",
     "directory":"/plugins/",
     "createPackageDirectory":true,
     "packageDirectory":"",
@@ -37,16 +37,16 @@
         }
     ],
     "contributors":[
-        
+
     ],
     "dependencies":{
-        
+
     },
     "devDependencies":{
-        
+
     },
     "installPaths":{
-        
+
     },
      "scripts":{
         "postVersion":"package set location='neokoenig/cfwheels-shortcodes#v`package version`'",
@@ -56,7 +56,7 @@
         "major-release":"bump --major && publish"
     },
     "ignore":[
-        
+
     ],
     "testbox":{
         "runner":[
@@ -65,7 +65,7 @@
             }
         ],
         "labels":[
-            
+
         ],
         "reporter":"",
         "reporterResults":"",
@@ -77,11 +77,11 @@
             "recurse":true
         },
         "watchers":[
-            
+
         ],
         "notify":{
             "emails":[
-                
+
             ],
             "growl":"",
             "URL":""
