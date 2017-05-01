@@ -1,8 +1,8 @@
 {
     "name":"Shortcodes",
-    "version":"0.0.3",
+    "version":"0.0.4",
     "author":"Tom King",
-    "location":"neokoenig/cfwheels-shortcodes#v0.0.3",
+    "location":"neokoenig/cfwheels-shortcodes#v0.0.4",
     "directory":"/plugins/",
     "createPackageDirectory":true,
     "packageDirectory":"Shortcodes",
